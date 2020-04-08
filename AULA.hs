@@ -57,7 +57,7 @@ sumSquares x y = sq x + sq y
 
 sumSquares x y = let sqX = x * x 
                      sqY = y * y 
-			           in sqX + sqY 
+			in sqX + sqY 
 
 
 vendasemana 0 = 10
@@ -66,6 +66,8 @@ vendasemana 2 = 10
 vendasemana 3 = 50 
 vendasemana 4 = 7
 vendasemana 5 = 1
+
+-- Erro.
 
 soma :: Int -> (Int -> Int)
 soma x y = x + y
@@ -77,8 +79,26 @@ vendasPorSemana :: Int -> Int -> Int
 vendasPorSemana s n | n > 0 && s == vendasemana n = incrementa (vendasPorSemana s (n - 1)) 
                     | s == vendasemana 0 = incrementa (vendasPorSemana s 0)
                     | s /= vendasemana 0 = 0 
--- stack overflow problem.
-                  
+
+-- Erro.
+
+mediaTres :: Int -> Int -> Int -> Float 
+mediaTres m n o = (a + b + c ) / 3
+   where a = fromIntegral m :: Float
+         b = fromIntegral n :: Float
+         c = fromIntegral o :: Float
+      
+
+acimaMedia :: Int -> Int -> Int -> Int
+acimaMedia m n o | (a > media) && (b > media) && (c > media) = 3
+                 | (((a > media) && (b > media)) || ((a > media) && (c > media)) || ((b > media) && (c > media))) = 2
+                 | (a > media) || (b > media) || (c > media) = 1
+                 | otherwise = 0
+ where media = mediaTres m n o 
+       a = fromIntegral m :: Float
+       b = fromIntegral n :: Float
+       c = fromIntegral o :: Float
+       
 
 
 
