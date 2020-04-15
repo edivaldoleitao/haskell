@@ -39,9 +39,9 @@ all4equal m n o p = (m == n) && ( n == o) && (o == p)
 equalcount :: Int -> Int -> Int -> Int 
 equalcount m n o | (allequal m n o == True) = 3
                  | m == n = 2
-				         | n == o = 2
-			         	 | m == o = 2
-		        		 | otherwise = 0
+		     | n == o = 2
+		     | m == o = 2
+		     | otherwise = 0
 
 
 
@@ -60,27 +60,32 @@ sumSquares x y = let sqX = x * x
 			in sqX + sqY 
 
 
-vendasemana 0 = 10
 vendasemana 1 = 30 
 vendasemana 2 = 10 
 vendasemana 3 = 50 
 vendasemana 4 = 7
 vendasemana 5 = 1
 
--- Erro.
 
 soma :: Int -> (Int -> Int)
 soma x y = x + y
 incrementa :: Int -> Int
 incrementa = soma 1
 
+-- Erro.
+
 
 vendasPorSemana :: Int -> Int -> Int
-vendasPorSemana s n | n > 0 && s == vendasemana n = incrementa (vendasPorSemana s (n - 1)) 
-                    | s == vendasemana 0 = incrementa (vendasPorSemana s 0)
-                    | s /= vendasemana 0 = 0 
+vendasPorSemana s n | null [cont] = 0
+                    | otherwise = cont 
+ where lista = [x | x <- [vendasemana 0, vendasemana 1, vendasemana 2, vendasemana 3, vendasemana 4, vendasemana 5]]
+       lista2 = take n lista
+       cont = length [y | y <- lista2, y == s]
+
 
 -- Erro.
+
+
 
 mediaTres :: Int -> Int -> Int -> Float 
 mediaTres m n o = (a + b + c ) / 3
