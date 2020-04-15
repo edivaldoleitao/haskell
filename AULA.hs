@@ -60,6 +60,7 @@ sumSquares x y = let sqX = x * x
 			in sqX + sqY 
 
 
+
 vendasemana 1 = 30 
 vendasemana 2 = 10 
 vendasemana 3 = 50 
@@ -74,14 +75,12 @@ incrementa = soma 1
 
 -- Erro.
 
-
 vendasPorSemana :: Int -> Int -> Int
-vendasPorSemana s n | null [cont] = 0
+vendasPorSemana s n | cont ==0 = 0
                     | otherwise = cont 
- where lista = [x | x <- [vendasemana 0, vendasemana 1, vendasemana 2, vendasemana 3, vendasemana 4, vendasemana 5]]
+ where lista = [x | x <- [ vendasemana 1, vendasemana 2, vendasemana 3, vendasemana 4, vendasemana 5]]
        lista2 = take n lista
        cont = length [y | y <- lista2, y == s]
-
 
 -- Erro.
 
