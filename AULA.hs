@@ -1,3 +1,5 @@
+import Data.Char
+
 square :: Int -> Int
 square x = x*x 
 
@@ -73,7 +75,7 @@ soma x y = x + y
 incrementa :: Int -> Int
 incrementa = soma 1
 
--- Erro.
+-- RESOLVIDO COM LISTA.
 
 vendasPorSemana :: Int -> Int -> Int
 vendasPorSemana s n | cont ==0 = 0
@@ -81,8 +83,6 @@ vendasPorSemana s n | cont ==0 = 0
  where lista = [x | x <- [ vendasemana 1, vendasemana 2, vendasemana 3, vendasemana 4, vendasemana 5]]
        lista2 = take n lista
        cont = length [y | y <- lista2, y == s]
-
--- Erro.
 
 
 
@@ -102,12 +102,34 @@ acimaMedia m n o | (a > media) && (b > media) && (c > media) = 3
        a = fromIntegral m :: Float
        b = fromIntegral n :: Float
        c = fromIntegral o :: Float
-       
+
+
+{-
+fromEnum :: Char -> Int
+toEnum :: Int -> Char 
+
+offset :: Int
+offset = (fromEnum `A`) - (fromEnum `a`) 
+
+
+maiuscula :: Char -> Char
+maiuscula ch = toEnum (fromEnum ch + offset)
+
+ehDigito :: Char -> Bool
+ehDigito ch = (0 <= ch) && (ch <= 9)
+-} 
 
 
 
+addEspacos :: Int -> String
+addEspacos 0 = "" 
+addEspacos 1 = " "
+addEspacos n = addEspacos (n - 1) ++ " "
 
 
+
+paraDireita :: Int -> String -> String 
+paraDireita m s = addEspacos m ++ s
 
 
 
