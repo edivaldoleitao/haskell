@@ -1,11 +1,11 @@
-#titulo maneiro - teste markdown
-###titulo menor
+# titulo maneiro - 
+### titulo menor
 
-**coisa em negrito **
+**coisa em negrito**
 
-coisa em italico_
+_coisa em italico_
 
-:chicken
+ :chicken:
 
 - item da lista
 - outro item
